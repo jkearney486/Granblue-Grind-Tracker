@@ -1,0 +1,11 @@
+
+WeaponStepTable - displays the entire content for a weapon upgrade step (not outlined)
+ElementBar - optional element that allows user to pick the element to change to (red outline)
+ItemTable - displays all the items required for the (optional) element (green outline)
+ItemCard - displays the item name, how many are held, and how many are required (purple outline)
+
+heirarchy:
+-WeaponStepTable
+	-ElementBar
+	-ItemTable
+		-ItemCard
