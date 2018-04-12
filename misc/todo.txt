@@ -1,11 +1,14 @@
+thought: how to handle first time upgrades vs not first time (costs more weapon stones the second time around), probably should handle it ourselves if the user puts multiple of the same weapon on their list, but this is a concern for a higher component, will move this discussion there later once it's specced out
 
-WeaponStepTable - displays the entire content for a weapon upgrade step (not outlined)
-ElementBar - optional element that allows user to pick the element to change to (red outline)
-ItemTable - displays all the items required for the (optional) element (green outline)
-ItemCard - displays the item name, how many are held, and how many are required (purple outline)
+
+WeaponStepTable - displays the entire content for a weapon upgrade step (not outlined) - this will include the name of the weapon to be forged by this upgrade step and an "add" button or similar in place of the Forge button on the in game UI to indicate that the user wants to add this weapon to their list - will hold the state of the current upgrade step
+ElementBar - optional element that allows user to pick the element to change to (red outline) - will need to have state to indicate which element is selected and update the selected element and update the required materials
+ItemTable - displays all the items required for the upgrade step (green outline) - can be a "dumb" component
+ItemCard - displays the item name (eventually, picture of the item plus a tooltip displaying name), how many are held, and how many are required (purple outline) - can be a "dumb" component
 
 heirarchy:
 -WeaponStepTable
 	-ElementBar
 	-ItemTable
 		-ItemCard
+
