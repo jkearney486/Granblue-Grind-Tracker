@@ -1,24 +1,17 @@
 ﻿import * as React from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { TreasureItem } from '../store/WeaponStep';
 
-type ItemProps = RouteComponentProps<{
-    name: string;
-    amountHeld: number;
-    amountRequired: number;
-}>;
+type ItemCardProps = TreasureItem;
 
-class Item extends React.Component<ItemProps, {}> {
+class ItemCard extends React.Component<ItemCardProps, {}> {
     public render() {
         return <div>
-            <div>
-                {this.props.match.params.name}
-            </div>
-            <div>
-                {this.props.match.params.amountHeld}
-                /
-                {this.props.match.params.amountRequired}
-            </div>
+            {this.props.name}
         </div>;
     }
 }
 
+export default connect(
+
+)(ItemCard) as typeof ItemCard;

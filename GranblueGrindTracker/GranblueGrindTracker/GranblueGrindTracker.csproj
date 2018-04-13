@@ -22,10 +22,20 @@
 
   <ItemGroup>
     <None Remove="ClientApp\components\ItemCard.tsx" />
+    <None Remove="ClientApp\components\ItemTable.tsx" />
+    <None Remove="ClientApp\components\WeaponStepTable.tsx" />
+    <None Remove="ClientApp\store\ItemCard.ts" />
+    <None Remove="ClientApp\store\ItemTable.ts" />
+    <None Remove="ClientApp\store\WeaponStep.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\components\ItemCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\ItemTable.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\WeaponStepTable.tsx" />
+    <TypeScriptCompile Include="ClientApp\store\ItemCard.ts" />
+    <TypeScriptCompile Include="ClientApp\store\ItemTable.ts" />
+    <TypeScriptCompile Include="ClientApp\store\WeaponStep.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
