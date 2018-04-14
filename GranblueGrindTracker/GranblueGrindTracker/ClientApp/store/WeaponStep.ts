@@ -133,6 +133,7 @@ const normalizedState: NormalizedEntities = {
 interface SelectElementAction {
     type: 'SELECT_WEAPON_ELEMENT';
     elementId: number;
+    weaponStepId: number;
 }
 
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
@@ -145,9 +146,10 @@ type KnownAction = SelectElementAction;
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    selectElement: (selectedElementId: number) => <SelectElementAction>{
+    selectElement: (selectedElementId: number, currentWeaponStepId: number) => <SelectElementAction>{
         type: 'SELECT_WEAPON_ELEMENT',
-        elementId: selectedElementId
+        elementId: selectedElementId,
+        weaponStepId: currentWeaponStepId
     }
 };
 
@@ -166,8 +168,13 @@ export const reducer: Reducer<WeaponStepState> = (state: WeaponStepState, incomi
     const action = incomingAction as KnownAction;
     switch (action.type) {
         case 'SELECT_WEAPON_ELEMENT':
-
-            return defaultState;
+            const updatedState = { ...state };
+            updatedState
+                .entities
+                .weaponSteps
+                .byId[action.weaponStepId]
+                .selectedElement = action.elementId;
+            return updatedState;
         default:
             break;
     }
@@ -176,18 +183,3 @@ export const reducer: Reducer<WeaponStepState> = (state: WeaponStepState, incomi
     //  (or default initial state if none was supplied)
     return state || defaultState;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
