@@ -57,9 +57,18 @@ const normalizedState: NormalizedEntities = {
                 selectedElement: 3,
                 items: [1, 2, 3, 4, 5, 6, 7],
                 elements: [1, 2, 3, 4, 5, 6]
+            },
+            2: {
+                id: 2,
+                name: "Ridill",
+                requiredLevel: "150",
+                requiredSkillLevel: null,
+                selectedElement: 3,
+                elements: [],
+                items: [1,2,3,4]
             }
         },
-        allIds: [1]
+        allIds: [1,2]
     },
     elements: {
         byId: {
@@ -168,7 +177,7 @@ export const reducer: Reducer<WeaponStepState> = (state: WeaponStepState, incomi
     const action = incomingAction as KnownAction;
     switch (action.type) {
         case 'SELECT_WEAPON_ELEMENT':
-            const updatedState = { ...state };
+            const updatedState: WeaponStepState = { ...state };
             updatedState
                 .entities
                 .weaponSteps

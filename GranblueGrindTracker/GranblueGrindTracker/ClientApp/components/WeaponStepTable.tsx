@@ -16,8 +16,28 @@ class WeaponStepTable extends React.Component<WeaponStepTableProps, {}> {
                 {this.props.entities.weaponSteps.byId[1].name}
             </div>
             <div>
+                Selected: <strong>{
+                    this.props
+                        .entities
+                        .elements
+                        .byId[this.props
+                            .entities
+                            .weaponSteps
+                            .byId[1].selectedElement].name
+                }</strong>
+                </div>
+            <div>
+                {this.props.entities.weaponSteps.byId[1].elements.map((elementId: number) => {
+                    return <div className="weapon-element" key={elementId}>
+                        <button onClick={() => { this.props.selectElement(elementId, 1) }}>
+                            {this.props.entities.elements.byId[elementId].name}
+                        </button>
+                    </div>;
+                })}
+            </div>
+            <div>
                 {this.props.entities.weaponSteps.byId[1].items.map((itemId: number) => {
-                    return <div>
+                    return <div key={itemId}>
                         {this.props.entities.items.byId[itemId].name}
                     </div>;
                 })}
@@ -30,5 +50,3 @@ export default connect(
     (state: ApplicationState) => state.weaponStep,
     WeaponStepStore.actionCreators
 )(WeaponStepTable) as typeof WeaponStepTable;
-
-

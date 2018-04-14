@@ -64,3 +64,8 @@
         text-overflow: ellipsis;
     }
 }
+
+.weapon-element {
+    margin-left: 4px;
+    display: inline-block;
+}
