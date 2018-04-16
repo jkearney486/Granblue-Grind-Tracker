@@ -177,13 +177,25 @@ export const reducer: Reducer<WeaponStepState> = (state: WeaponStepState, incomi
     const action = incomingAction as KnownAction;
     switch (action.type) {
         case 'SELECT_WEAPON_ELEMENT':
-            const updatedState: WeaponStepState = { ...state };
-            updatedState
-                .entities
-                .weaponSteps
-                .byId[action.weaponStepId]
-                .selectedElement = action.elementId;
-            return updatedState;
+            const newState: WeaponStepState = {
+                ui: state.ui,
+                entities: {
+                    elements: state.entities.elements,
+                    items: state.entities.items,
+                    weaponSteps: {
+                        allIds: state.entities.weaponSteps.allIds,
+                        byId: {
+                            ...state.entities.weaponSteps.byId,
+                            [action.weaponStepId]: {
+                                ...state.entities.weaponSteps.byId[action.weaponStepId],
+                                selectedElement: action.elementId
+                            }
+                        }
+                    }
+                }
+            };
+
+            return newState;
         default:
             break;
     }

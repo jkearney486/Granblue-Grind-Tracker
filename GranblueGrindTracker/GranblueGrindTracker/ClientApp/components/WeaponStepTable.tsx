@@ -15,33 +15,45 @@ class WeaponStepTable extends React.Component<WeaponStepTableProps, {}> {
             <div>
                 {this.props.entities.weaponSteps.byId[1].name}
             </div>
-            <div>
-                Selected: <strong>{
-                    this.props
-                        .entities
-                        .elements
-                        .byId[this.props
-                            .entities
-                            .weaponSteps
-                            .byId[1].selectedElement].name
-                }</strong>
+            {this.renderSelectedItem()}
+            {this.renderElementButtons()}
+            {this.renderItems()}
+        </div>;
+    }
+
+    private renderElementButtons() {
+        return <div>
+            {this.props.entities.weaponSteps.byId[1].elements.map((elementId: number) =>
+                <div className="weapon-element" key={elementId}>
+                    <button onClick={() => { this.props.selectElement(elementId, 1); }}>
+                        {this.props.entities.elements.byId[elementId].name}
+                    </button>
                 </div>
-            <div>
-                {this.props.entities.weaponSteps.byId[1].elements.map((elementId: number) => {
-                    return <div className="weapon-element" key={elementId}>
-                        <button onClick={() => { this.props.selectElement(elementId, 1) }}>
-                            {this.props.entities.elements.byId[elementId].name}
-                        </button>
-                    </div>;
-                })}
-            </div>
-            <div>
-                {this.props.entities.weaponSteps.byId[1].items.map((itemId: number) => {
-                    return <div key={itemId}>
-                        {this.props.entities.items.byId[itemId].name}
-                    </div>;
-                })}
-            </div>
+            )}
+        </div>;
+    }
+
+    private renderItems() {
+        return <div>
+            {this.props.entities.weaponSteps.byId[1].items.map((itemId: number) => {
+                return <div key={itemId}>
+                    {this.props.entities.items.byId[itemId].name}
+                </div>;
+            })}
+        </div>;
+    }
+
+    private renderSelectedItem() {
+        return <div>
+            Selected: <strong>{
+                this.props
+                    .entities
+                    .elements
+                    .byId[this.props
+                        .entities
+                        .weaponSteps
+                        .byId[1].selectedElement].name
+            }</strong>
         </div>;
     }
 }
