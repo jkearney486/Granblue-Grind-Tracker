@@ -2,6 +2,21 @@ import * as WeatherForecasts from './WeatherForecasts';
 import * as Counter from './Counter';
 import * as WeaponStep from './WeaponStep';
 
+interface NormalizedObjects<T> {
+    byId: { [id: number]: T };
+    allIds: number[];
+}
+
+export interface TreasureItem {
+    id: number;
+    name: string;
+}
+
+export interface WeaponElement {
+    id: number;
+    name: string;
+}
+
 // The top-level state object
 export interface ApplicationState {
     counter: Counter.CounterState;

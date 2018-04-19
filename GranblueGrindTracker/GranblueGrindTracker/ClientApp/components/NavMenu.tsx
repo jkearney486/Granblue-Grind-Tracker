@@ -12,29 +12,47 @@ export class NavMenu extends React.Component<{}, {}> {
                         <span className='icon-bar'></span>
                         <span className='icon-bar'></span>
                     </button>
-                    <Link className='navbar-brand' to={ '/' }>GranblueGrindTracker</Link>
+                    <Link className='navbar-brand' to={ '/' }>Granblue Grind Tracker</Link>
                 </div>
                 <div className='clearfix'></div>
                 <div className='navbar-collapse collapse'>
                     <ul className='nav navbar-nav'>
+                        {
+                            // TODO: maybe get rid of the Home or make it where the user's list/queue is?
+                        }
                         <li>
                             <NavLink exact to={ '/' } activeClassName='active'>
                                 <span className='glyphicon glyphicon-home'></span> Home
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/counter' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-education'></span> Counter
+                            <NavLink to={'/class-champion'} activeClassName='active'>
+                                Class Champion Weapons
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/fetchdata' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-th-list'></span> Fetch data
+                            <NavLink to={'/revenant'} activeClassName='active'>
+                                Revenant Weapons
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={'/test'} activeClassName='active'>
-                                Test
+                            <NavLink to={'/seraphic'} activeClassName='active'>
+                                Seraphic Weapons
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/xeno'} activeClassName='active'>
+                                Xeno Weapons
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/bahamut'} activeClassName='active'>
+                                Bahamut Weapons
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/ultima'} activeClassName='active'>
+                                Ultima Weapons
                             </NavLink>
                         </li>
                     </ul>
