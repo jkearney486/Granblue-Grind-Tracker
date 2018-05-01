@@ -65,7 +65,6 @@
     }
 }
 
-.weapon-element {
-    margin-left: 4px;
-    display: inline-block;
+.btn-element {
+    margin-right: 4px;
 }

@@ -17,11 +17,11 @@ class WeaponList extends React.Component<WeaponListProps, {}> {
                 const cat = this.props.categories.byId[weapon.category];
                 if (this.props.match.path.includes(cat.linkTo)) {
                     return (
-                    <div>
-                        <NavLink to={`${this.props.match.path}/${weapon.linkTo}`}>
-                            {weapon.name}
-                        </NavLink>
-                    </div>
+                        <div key={weapon.id}>
+                            <NavLink to={`${this.props.match.path}/${weapon.id}`}>
+                                {weapon.name}
+                            </NavLink>
+                        </div>
                     );
                 }
             })}
@@ -30,6 +30,6 @@ class WeaponList extends React.Component<WeaponListProps, {}> {
 }
 
 export default connect(
-    (state: ApplicationState) => state.weaponList,
+    (state: ApplicationState, ownProps: any) => state.weaponList,
     WeaponListStore.actionCreators
 )(WeaponList) as typeof WeaponList;

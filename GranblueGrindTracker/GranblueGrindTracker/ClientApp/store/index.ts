@@ -1,5 +1,6 @@
 import { Action, Reducer, ActionCreator } from 'redux';
 import * as WeaponList from './WeaponList';
+import * as WeaponUpgrade from './WeaponUpgrade';
 
 export interface NormalizedObjects<T> {
     byId: { [id: string]: T };
@@ -15,6 +16,7 @@ export interface WeaponElement {
     id: string;
     name: string;
     imgUrl: string;
+    weaponSuffix: string;
 }
 
 export interface WeaponCategory {
@@ -40,6 +42,7 @@ export interface WeaponStage {
 // The top-level state object
 export interface ApplicationState {
     weaponList: WeaponList.WeaponListState;
+    weaponUpgrade: WeaponUpgrade.WeaponUpgradeState;
 }
 
 export const initialAppState: ApplicationState = {
@@ -204,6 +207,56 @@ export const initialAppState: ApplicationState = {
             },
             allIds: ["classChampion", "revenant", "seraphic", "xeno", "bahamut", "ultima"]
         }
+    },
+    weaponUpgrade: {
+        weapon: {
+            id: "",
+            category: "",
+            linkTo: "",
+            name: ""
+        },
+        elements: {
+            byId: {
+                "fire": {
+                    id: "fire",
+                    name: "Fire",
+                    imgUrl: "",
+                    weaponSuffix: "Incendo"
+                },
+                "water": {
+                    id: "water",
+                    name: "Water",
+                    imgUrl: "",
+                    weaponSuffix: "Aqua"
+                },
+                "earth": {
+                    id: "earth",
+                    name: "Earth",
+                    imgUrl: "",
+                    weaponSuffix: "Terra"
+                },
+                "wind": {
+                    id: "wind",
+                    name: "Wind",
+                    imgUrl: "",
+                    weaponSuffix: "Ventus"
+                },
+                "light": {
+                    id: "light",
+                    name: "Light",
+                    imgUrl: "",
+                    weaponSuffix: "Lumen"
+                },
+                "dark": {
+                    id: "dark",
+                    name: "Dark",
+                    imgUrl: "",
+                    weaponSuffix: "Nyx"
+                }
+            },
+            allIds: ["fire", "water", "earth", "wind", "light", "dark"]
+        },
+        selectedElementId: "fire"
     }
     /*entities: {
         elements: {
@@ -441,7 +494,8 @@ export const initialAppState: ApplicationState = {
 // the reducer with the matching name. It's important that the names match exactly, and that the reducer
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
-    weaponList: WeaponList.reducer
+    weaponList: WeaponList.reducer,
+    weaponUpgrade: WeaponUpgrade.reducer
 };
 
 // This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are

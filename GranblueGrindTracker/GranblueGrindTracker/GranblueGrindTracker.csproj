@@ -25,15 +25,19 @@
     <None Remove="ClientApp\components\FetchData.tsx" />
     <None Remove="ClientApp\components\WeaponList.tsx" />
     <None Remove="ClientApp\components\WeaponStepTable.tsx" />
+    <None Remove="ClientApp\components\WeaponUpgrade.tsx" />
     <None Remove="ClientApp\store\Counter.ts" />
     <None Remove="ClientApp\store\WeaponList.ts" />
     <None Remove="ClientApp\store\WeaponStep.ts" />
+    <None Remove="ClientApp\store\WeaponUpgrade.ts" />
     <None Remove="ClientApp\store\WeatherForecasts.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\components\WeaponList.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\WeaponUpgrade.tsx" />
     <TypeScriptCompile Include="ClientApp\store\WeaponList.ts" />
+    <TypeScriptCompile Include="ClientApp\store\WeaponUpgrade.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
