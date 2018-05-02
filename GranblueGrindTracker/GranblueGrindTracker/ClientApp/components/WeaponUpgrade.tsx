@@ -11,22 +11,27 @@ type WeaponUpgradeProps =
 
 class WeaponUpgrade extends React.Component<WeaponUpgradeProps, {}> {
     public render() {
-        // TODO: remove this when done with dev
-        const props = this.props;
-        return (
-            <div>
-                <div>
-                    {this.props.elements.allIds.map((id) => {
-                        return <button key={id} className="btn btn-element" onClick={() => this.props.selectElement(id)}>
-                            {this.props.elements.byId[id].name}
-                        </button>;
-                    })}
-                </div>
-                {this.props.weapon.name}
-                {' '}
-                {this.props.elements.byId[this.props.selectedElementId].weaponSuffix}
+        let name = `${this.props.weapon.name} ${this.props.elements.byId[this.props.selectedElementId].weaponSuffix}`;
+        if (this.props.weapon.fiveStarName) {
+            name = this.props.weapon.fiveStarName;
+        }
+        return <div className="weapon-upgrade">
+            <div className="element-picker">
+                {this.props.elements.allIds.map((id) => {
+                    return <button key={id} className={`btn btn-element ${id === this.props.selectedElementId ? "active" : ""}`} onClick={() => this.props.selectElement(id)}>
+                        {this.props.elements.byId[id].name}
+                    </button>;
+                })}
             </div>
-        );
+            <div className="weapon">
+                {name}
+            </div>
+            <div>
+                <button className="btn btn-add btn-primary">
+                    Add
+                </button>
+            </div>
+        </div>;
     }
 }
 

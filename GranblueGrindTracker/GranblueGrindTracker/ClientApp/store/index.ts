@@ -29,6 +29,8 @@ export interface Weapon {
     id: string;
     category: string; // id of the category
     name: string;
+    fiveStarName: string;
+    listName: string;
     linkTo: string;
 }
 
@@ -52,102 +54,136 @@ export const initialAppState: ApplicationState = {
                 "avenger": {
                     id: "avenger",
                     name: "Avenger",
+                    fiveStarName: "Berserker's Barrage",
+                    listName: "Avenger / Berserker's Barrage",
                     category: "classChampion",
                     linkTo: "avenger"
                 },
                 "skofnung": {
                     id: "skofnung",
                     name: "Skofnung",
+                    fiveStarName: "Guardian's Xiphos",
+                    listName: "Skofnung / Guardian's Xiphos",
                     category: "classChampion",
                     linkTo: "skofnung"
                 },
                 "nirvana": {
                     id: "nirvana",
                     name: "Nirvana",
+                    fiveStarName: "Hallowed Pilgrimage",
+                    listName: "Nirvana / Hallowed Pilgrimage",
                     category: "classChampion",
                     linkTo: "nirvana"
                 },
                 "keraunos": {
                     id: "keraunos",
                     name: "Keraunos",
+                    fiveStarName: "Demonic Longstaff",
+                    listName: "Keraunos / Demonic Longstaff",
                     category: "classChampion",
                     linkTo: "keraunos"
                 },
                 "oliver": {
                     id: "oliver",
                     name: "Oliver",
+                    fiveStarName: "The Storyteller",
+                    listName: "Oliver / The Storyteller",
                     category: "classChampion",
                     linkTo: "oliver"
                 },
                 "ipetam": {
                     id: "ipetam",
                     name: "Ipetam",
+                    fiveStarName: "Original Sin",
+                    listName: "Ipetam / Original Sin",
                     category: "classChampion",
                     linkTo: "ipetam"
                 },
                 "hellionGauntlet": {
                     id: "hellionGauntlet",
                     name: "Hellion Gauntlet",
+                    fiveStarName: "Championship Belt",
+                    listName: "Hellion Gauntlet / Championship Belt",
                     category: "classChampion",
                     linkTo: "hellion-gauntlet"
                 },
                 "rosenbogen": {
                     id: "rosenbogen",
                     name: "Rosenbogen",
+                    fiveStarName: "Maverick",
+                    listName: "Rosenbogen / Maverick",
                     category: "classChampion",
                     linkTo: "rosenbogen"
                 },
                 "langeleik": {
                     id: "langeleik",
                     name: "Langeleik",
+                    fiveStarName: "Chanteuse Angelique",
+                    listName: "Langeleik / Chanteuse Angelique",
                     category: "classChampion",
                     linkTo: "langeleik"
                 },
                 "romulusSpear": {
                     id: "romulusSpear",
                     name: "Romulus Spear",
+                    fiveStarName: "Helmwige",
+                    listName: "Romulus Spear / Helmwige",
                     category: "classChampion",
                     linkTo: "romulus-spear"
                 },
                 "faust": {
                     id: "faust",
                     name: "Faust",
+                    fiveStarName: "",
+                    listName: "Faust",
                     category: "classChampion",
                     linkTo: "faust"
                 },
                 "murakumo": {
                     id: "murakumo",
                     name: "Murakumo",
+                    fiveStarName: "",
+                    listName: "Murakumo",
                     category: "classChampion",
                     linkTo: "murakumo"
                 },
                 "muramasa": {
                     id: "muramasa",
                     name: "Muramasa",
+                    fiveStarName: "",
+                    listName: "Muramasa",
                     category: "classChampion",
                     linkTo: "muramasa"
                 },
                 "aschallon": {
                     id: "aschallon",
                     name: "Aschallon",
+                    fiveStarName: "Ridill",
+                    listName: "Aschallon / Ridill",
                     category: "classChampion",
                     linkTo: "aschallon"
                 },
                 "nebuchad": {
                     id: "nebuchad",
                     name: "Nebuchad",
+                    fiveStarName: "",
+                    listName: "Nebuchad",
                     category: "classChampion",
                     linkTo: "nebuchad"
                 },
                 "kapilavastu": {
                     id: "kapilavastu",
                     name: "Kapilavastu",
+                    fiveStarName: "Lunatic Broom",
+                    listName: "Kapilavastu / Lunatic Broom",
                     category: "classChampion",
                     linkTo: "kapilavastu"
                 },
                 "misericorde": {
                     id: "misericorde",
                     name: "Misericorde",
+                    fiveStarName: "",
+                    listName: "Misericorde",
                     category: "classChampion",
                     linkTo: "misericorde"
                 }
@@ -213,7 +249,9 @@ export const initialAppState: ApplicationState = {
             id: "",
             category: "",
             linkTo: "",
-            name: ""
+            name: "",
+            fiveStarName: "",
+            listName: ""
         },
         elements: {
             byId: {

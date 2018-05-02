@@ -16,13 +16,11 @@ class WeaponList extends React.Component<WeaponListProps, {}> {
                 const weapon = this.props.weapons.byId[id];
                 const cat = this.props.categories.byId[weapon.category];
                 if (this.props.match.path.includes(cat.linkTo)) {
-                    return (
-                        <div key={weapon.id}>
-                            <NavLink to={`${this.props.match.path}/${weapon.id}`}>
-                                {weapon.name}
-                            </NavLink>
-                        </div>
-                    );
+                    return <div key={weapon.id}>
+                        <NavLink to={`${this.props.match.path}/${weapon.id}`}>
+                            {weapon.listName}
+                        </NavLink>
+                    </div>;
                 }
             })}
         </div>;
